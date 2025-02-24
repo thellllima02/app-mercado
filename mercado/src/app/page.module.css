@@ -9,7 +9,19 @@
 .lins{
   font-size: 20px;
   font-weight: bold;
+  margin: 20px;
+  margin-bottom: 10px;
+  justify-self: center;
+}
+.sub{
+  font-size: 20px;
+  font-weight: bold;
   margin: 0;
   margin-bottom: 10px;
   justify-self: center;
+}
+.black{
+  background-color: black;
+  color: white;
+  transition: 0.5s;
 }

@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    place-items: center; /*Centralizar horizontal e verticalmente*/
+    text-align: center;
+
+}
+.input{
+    font-size: 20px;
+    font-weight: bold;
+    justify-self: center;/*Centralizar horizontalmente*/
+    margin: 20px 0 10px 0; /*Combinando as propriedades de margin-top e marigin-bottom*/
+    border-radius: 12px;
+}
