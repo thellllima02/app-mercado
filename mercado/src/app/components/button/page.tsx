@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './button.module.css';
 
 interface ButtonProps {
     label: any;
@@ -8,7 +9,7 @@ interface ButtonProps {
 
 export default function Button({ label, type = "button" }: ButtonProps) {
     return (
-        <button type={type}>
+        <button type={type} className={styles.button}>
             {label}
         </button>
     );

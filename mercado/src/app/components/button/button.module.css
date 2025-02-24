@@ -1,14 +1,24 @@
-
-.button{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-    margin-bottom: 10px;
-    justify-self: center;
-    margin-top: 20px;
-}
-.button:hover{
-    background-color: black;
+.button {
+    background-color: #0070f3;
     color: white;
-    transition: 0.5s;
+    padding: 0.5rem 1rem;
+    border-radius: 11px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 8px;
+}
+
+.button:hover {
+    background-color: #005bb5;
+}
+
+.button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
+}
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

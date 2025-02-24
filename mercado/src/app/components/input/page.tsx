@@ -1,23 +1,23 @@
 import styles from './input.module.css'
 import React from 'react'
-
-interface InputProps{
-    type?: string;
-    placeholder?: string;
-    name?:string;
-    id?:string;
+interface InputProps {
+    placeholder: string;
+    name: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Input({type="text", placeholder = "", name, id}: InputProps) {
+const Input: React.FC<InputProps> = ({ placeholder, name, value, onChange }) => {
     return (
-        <div className={styles.container}>
-            <input 
-            className={styles.input} 
-            type={type} 
-            placeholder={placeholder} 
-            name={name} 
-            id={id||name} 
-            />
-        </div>
+        <input
+            type="text"
+            placeholder={placeholder}
+            name={name}
+            value={value}
+            onChange={onChange}
+            className={styles.input}
+        />
     );
-}
+};
+
+export default Input;

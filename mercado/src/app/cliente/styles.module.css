@@ -1,18 +1,27 @@
-.container{
-    display: flex;
-    place-items: center; /*Centralizar horizontal e verticalmente*/
-    text-align: center;
-.text{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-    margin-bottom: 10px;
-    justify-self: center;
-    margin-top: 20px;
-}
-.text:hover{
-    background-color: black;
-    color: white;
-    transition: 0.5s;
+.body{
+    background: rgb(70, 142, 236);
+    font: normal 15pt Arial;
 }
 
+.header{
+    text-align: center;
+
+}
+
+.section{
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 5px 5px 10px black;/*--Sombra*/
+}
+.div{
+    text-align: center;
+    padding: 9px;
+}
+
+.footer{
+    text-align: center;
+    font-style: italic;
+}
