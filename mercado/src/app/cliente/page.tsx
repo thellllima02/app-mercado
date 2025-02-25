@@ -22,6 +22,13 @@ export default function Page() {
             body: JSON.stringify(formData),
         });
         const result = await response.json();
+        //Alert informa se os dados foram salvos com sucesso ou se houve erro
+        if(response.ok){
+            alert('Dados salvos com sucesso!')
+            setFormData({ nome:"", endereco:"", cidade:""})
+        }else{
+            alert('Erro ao salvar os dados!')
+        }
         console.log(result.message);
     };
 
@@ -32,11 +39,10 @@ export default function Page() {
                 <h1 >Página de Clientes</h1>
                 </header>
                 <section className={styles.section}>
-                    <form onSubmit={(event) => handleSubmit(event, formData)} >
+                    <form onSubmit={(event) => handleSubmit(event)} >
                         <Input placeholder="Nome do cliente" name="nome" value={formData.nome} onChange={handleChange} />
                         <Input placeholder="Endereço do cliente" name="endereco" value={formData.endereco} onChange={handleChange} />
                         <Input placeholder="Cidade do cliente" name="cidade" value={formData.cidade} onChange={handleChange} />
-                        
                         <Button type="submit" label="Salvar" />
                         <Link href="./"><Button type="submit" label="Voltar" /></Link>
                     </form>
