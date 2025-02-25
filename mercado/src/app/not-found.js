@@ -1,11 +1,14 @@
 import Link from 'next/link'
+import styles from './page.module.css'
+import Button from './components/button/page';
 export default function NotFound() {
     return (
-      <div>
+      <div className={styles.div}>
         <h1>Página não encontrada</h1>
-        <p>Oops! A página que você procura não existe.</p>
-        <div>
-            <Link href="./"><button>Voltar para pagina inicial.</button></Link>
+        
+        <div className={styles.section}>
+        <p>Oops! A página que você procura não existe ou está em construção.</p>
+        <Link href="./"><Button type="submit" label="Voltar para tela principal" /></Link>
           </div>
       </div>
     );

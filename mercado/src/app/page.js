@@ -1,5 +1,6 @@
 import styles from "./page.module.css"
 import Link from "next/link";
+import CustonLink from "./components/link/page";
 
 export default function Home() {
   return (
@@ -10,26 +11,16 @@ export default function Home() {
       <h2 className={styles.sub}>Cadastro </h2>
       </header>
       <section>
-        <div className={styles.section}>
-          <ul>
-            <li>
-            <Link href="./cliente"> Cliente </Link>
-            </li>
-            <li>
-            <Link href="./fornecedores"> Fornecedores </Link>
-            </li>
-            <li>
-            <Link href="./produtos"> Produto </Link>
-            </li>
-            <li></li>
-            <li></li>
-          </ul>
-       
+        <nav className={styles.section}>
+        <CustonLink href="./cliente" label="Clientes"> </CustonLink>
+        <CustonLink href="./fornecedor" label="Fornecedores"> Fornecedores </CustonLink>
+        <CustonLink href="./produtos" label="Produtos"> Produtos </CustonLink>
+        <CustonLink href="./categoria" label="Categorias"> Categorias </CustonLink>
+        <CustonLink href="./compra" label="Compras"> Compras </CustonLink>
+        <CustonLink href="./produtos" label="Vendas"> Vendas </CustonLink>
+        </nav>
+      </section> 
         
-        
-      
-        </div>
-      </section>
 
       <footer className={styles.footer}>
                     <p>© 2025 Hércules Silva. Todos os direitos reservados.</p>
