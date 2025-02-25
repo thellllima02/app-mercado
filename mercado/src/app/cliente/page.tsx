@@ -14,6 +14,12 @@ export default function Page() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        
+        //Verifica se os campos estão preenchidos
+        if(!formData.nome || !formData.endereco || !formData.cidade){
+            alert('Preencha todos os campos!')
+            return;
+        }
         const response = await fetch('/api/cliente', {
             method: 'POST',
             headers: {
