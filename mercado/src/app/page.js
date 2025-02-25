@@ -3,17 +3,40 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div >
-      <h1 className={styles.h}>Página Principal</h1>
+    <body>
+    <div className={styles.div}>
+      <header>
+      <h1 className={styles.header}>Página Principal</h1>
       <h2 className={styles.sub}>Cadastro </h2>
-      <nav className={styles.lins}>
-      <Link href="./cliente"> Cliente </Link>
-      <Link href="./fornecedores"> Fornecedores </Link>
-      <Link href="./produtos"> Produto </Link>
+      </header>
+      <section>
+        <div className={styles.section}>
+          <ul>
+            <li>
+            <Link href="./cliente"> Cliente </Link>
+            </li>
+            <li>
+            <Link href="./fornecedores"> Fornecedores </Link>
+            </li>
+            <li>
+            <Link href="./produtos"> Produto </Link>
+            </li>
+            <li></li>
+            <li></li>
+          </ul>
+       
+        
+        
+      
+        </div>
+      </section>
 
-      </nav>
+      <footer className={styles.footer}>
+                    <p>© 2025 Hércules Silva. Todos os direitos reservados.</p>
+                </footer>
     
     </div>
+    </body>
     
   )
 }

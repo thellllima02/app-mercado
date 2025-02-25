@@ -1,27 +1,29 @@
-.h{
-  font-size: 80px;
-  font-style: italic;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-  margin-bottom: 10px;
+.body{
+  background: rgb(70, 142, 236);
+  font: normal 15pt Arial;
 }
-.lins{
-  font-size: 20px;
-  font-weight: bold;
-  margin: 20px;
-  margin-bottom: 10px;
-  justify-self: center;
+
+.header{
+  text-align: center;
 }
 .sub{
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-  margin-bottom: 10px;
-  justify-self: center;
+  text-align: center;
 }
-.black{
-  background-color: black;
-  color: white;
-  transition: 0.5s;
+
+.section{
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  width: 500px;
+  margin: auto;
+  box-shadow: 5px 5px 10px black;/*--Sombra*/
+}
+.div{
+  text-align: center;
+  padding: 9px;
+}
+
+.footer{
+  text-align: center;
+  font-style: italic;
 }
