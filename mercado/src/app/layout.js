@@ -1,4 +1,4 @@
-import Styles from "./page.module.css";
+import "./globals.css";
 
 
 export const metadata = {
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
-      <body className={Styles.body}>
+      <body >
         {children}
       </body>
     </html>

@@ -50,7 +50,7 @@ export default function Page() {
                         <Input placeholder="Endereço do cliente" name="endereco" value={formData.endereco} onChange={handleChange} />
                         <Input placeholder="Cidade do cliente" name="cidade" value={formData.cidade} onChange={handleChange} />
                         <Button type="submit" label="Salvar" />
-                        <Link href="./"><Button type="submit" label="Voltar" /></Link>
+                        <Link href="./"><Button type="button" label="Voltar" /></Link>
                     </form>
                 </section>
                 <footer className={styles.footer}>

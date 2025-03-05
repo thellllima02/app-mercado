@@ -1,15 +1,9 @@
-.body{
-  background: rgb(70, 142, 236);
-  font: normal 15pt Arial;
-}
-
 .header{
   text-align: center;
 }
 .sub{
   text-align: center;
 }
-
 .section{
   background: white;
   border-radius: 12px;
@@ -22,7 +16,6 @@
   text-align: center;
   padding: 9px;
 }
-
 .footer{
   text-align: center;
   font-style: italic;
