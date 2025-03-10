@@ -13,10 +13,10 @@ export default function Home() {
         <nav className={styles.section}>
         <CustonLink href="./cliente" label="Clientes"> </CustonLink>
         <CustonLink href="./fornecedor" label="Fornecedores"> Fornecedores </CustonLink>
-        <CustonLink href="./produtos" label="Produtos"> Produtos </CustonLink>
+        <CustonLink href="./produto" label="Produtos"> Produtos </CustonLink>
         <CustonLink href="./categoria" label="Categorias"> Categorias </CustonLink>
         <CustonLink href="./compra" label="Compras"> Compras </CustonLink>
-        <CustonLink href="./produtos" label="Vendas"> Vendas </CustonLink>
+        <CustonLink href="./venda" label="Vendas"> Vendas </CustonLink>
         </nav>
       </section> 
         

@@ -8,7 +8,7 @@ export default function NotFound() {
         
         <div className={styles.section}>
         <p>Oops! A página que você procura não existe ou está em construção.</p>
-        <Link href="./"><Button type="button" label="Voltar para tela principal" /></Link>
+        <Link href="./"><Button type="button" label="Voltar para a pagina anterior " /></Link>
           </div>
       </div>
     );
