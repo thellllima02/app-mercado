@@ -48,7 +48,7 @@ export default function Page() {
                 <h1 >Página de Clientes</h1>
                 </header>
                 <section className={styles.section}>
-                    <form onSubmit={(event) => handleSubmit(event)} >
+                    <form onSubmit={(event) => handleSubmit(event, formData)} >
                         <Input placeholder="Nome do cliente" name="nome" value={formData.nome} onChange={handleChange} />
                         <Input placeholder="Endereço do cliente" name="endereco" value={formData.endereco} onChange={handleChange} />
                         <Input placeholder="Cidade do cliente" name="cidade" value={formData.cidade} onChange={handleChange} />
