@@ -6,8 +6,8 @@ export default function Home() {
     <body>
       <div className={styles.div}>
         <header>
-          <h1 className={styles.header}>Página Principal</h1>
-          <h2 className={styles.sub}>Cadastro </h2>
+          <h1 className={styles.header}>Página Inicial</h1>
+          <h2 className={styles.sub}>Setor </h2>
         </header>
         <section>
           <nav className={styles.section}>
@@ -19,14 +19,10 @@ export default function Home() {
             <CustonLink href="./venda" label="Vendas"> Vendas </CustonLink>
           </nav>
         </section>
-
-
         <footer className={styles.footer}>
           <p>© 2025 Hércules Silva. Todos os direitos reservados.</p>
         </footer>
-
       </div>
     </body>
-
   )
 }
