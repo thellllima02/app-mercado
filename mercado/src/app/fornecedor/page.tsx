@@ -1,11 +1,11 @@
 import CustonLink from "./../components/link/page";
 
 export default function Fornecedor() {
-    return(
+    return (
         <div>
-            <h1>Categoria</h1>
+            <h1>Fornecedor</h1>
+            <CustonLink href="/fornecedor/viewFornecedor" label="Visulizar Fornecedor"></CustonLink>
             <CustonLink href="/fornecedor/novoFornecedor" label="Novo Fornecedor"></CustonLink>
-            <CustonLink href="/fornecedor/novoFornecedor" label="Visulizar Fornecedor"></CustonLink>
             <CustonLink href="./" label="Voltar"></CustonLink>
         </div>
     )
