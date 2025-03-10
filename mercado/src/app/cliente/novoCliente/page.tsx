@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import CustonLink from '../../components/link/page';
 import styles from "../styles.module.css";
 import Input from '../../components/input/page'
+import Button from '../../components/button/page'
 
 
 export default function Page() {
@@ -53,7 +54,7 @@ export default function Page() {
                         <Input placeholder="Nome do cliente" name="nome" value={formData.nome} onChange={handleChange} />
                         <Input placeholder="Endereço do cliente" name="endereco" value={formData.endereco} onChange={handleChange} />
                         <Input placeholder="Cidade do cliente" name="cidade" value={formData.cidade} onChange={handleChange} />
-                        <button type="submit">Salvar</button>
+                        <Button type="submit" label="Salvar"></Button>
                         <CustonLink href="./" label="Voltar"></CustonLink>
                     </form>
                 </section>
