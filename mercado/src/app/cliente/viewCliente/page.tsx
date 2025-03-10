@@ -11,7 +11,7 @@ export default async function ViewCliente() {
                     convertejson.map((cliente) => (
                         <li key={cliente.id}>
                             <label> {cliente.nome} </label>
-                            <label> {cliente.endereço} </label>
+                            <label> {cliente.endereco} </label>
                             <label> {cliente.cidade} </label>
                         </li>
                     ))}
