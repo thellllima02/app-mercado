@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
+import CustonLink from '../../components/link/page';
 import styles from "../styles.module.css";
 import Input from '../../components/input/page';
 import Button from '../../components/button/page';
@@ -50,7 +51,7 @@ export default function Page() {
                         <Input placeholder="Endereço do cliente" name="endereco" value={formData.endereco} onChange={handleChange} />
                         <Input placeholder="Cidade do cliente" name="cidade" value={formData.cidade} onChange={handleChange} />
                         <Button type="submit" label="Salvar" />
-                        <Link href="./"><Button type="button" label="Voltar" /></Link>
+                        <CustonLink href="./" label="Voltar"></CustonLink>
                     </form>
                 </section>
                 <footer className={styles.footer}>
