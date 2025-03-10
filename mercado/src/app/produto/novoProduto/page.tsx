@@ -1,12 +1,12 @@
 'use client'
-import React, { useState, useEffect } from 'react';
-import CustonLink from '../../components/link/page';
-import styles from "../styles.module.css";
-import Input from '../../components/input/page';
-import Button from '../../components/button/page';
+import React, { useState } from "react";
+import CustonLink from "../../components/link/page";
+import styles from "../styles.module.css"
+import Input from "../../components/input/page";
+import Button from "../../components/button/page";
 
-export default function Page() {
-    const [formData, setFormData] = useState({ nome: "", endereco: "", cidade: "" });
+export default function Fornecedor() {
+    const [formData, setFormData] = useState({ nome: "", preco: "", quantidade: ""});
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -14,13 +14,13 @@ export default function Page() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        
-        //Verifica se os campos estão preenchidos
-        if(!formData.nome || !formData.endereco || !formData.cidade){
+
+
+        if (!formData.nome || !formData.preco || !formData.quantidade) {
             alert('Preencha todos os campos!')
             return;
         }
-        const response = await fetch('http://localhost:3030/api/cliente', {
+        const response = await fetch('http://localhost:3030/api/produto', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,30 +28,26 @@ export default function Page() {
             body: JSON.stringify(formData),
         });
         const result = await response.json();
-        //Alert informa se os dados foram salvos com sucesso ou se houve erro
-        if(response.ok){
+
+        if (response.ok) {
             alert('Dados salvos com sucesso!')
-            setFormData({ nome:"", endereco:"", cidade:""})
-        }else{
+            setFormData({ nome: "", preco: "", quantidade: ""})
+        } else {
             alert('Erro ao salvar os dados!')
         }
         console.log(result.message);
     };
-    useEffect(() => {
-        // Código que deve rodar apenas no cliente
-    }, []);
-
     return (
         <body className={styles.body}>
             <div className={styles.div}>
                 <header className={styles.header}>
-                <h1 >Página de Clientes</h1>
+                    <h1 >Página de Produto</h1>
                 </header>
                 <section className={styles.section}>
                     <form onSubmit={(event) => handleSubmit(event)} >
-                        <Input placeholder="Nome do cliente" name="nome" value={formData.nome} onChange={handleChange} />
-                        <Input placeholder="Endereço do cliente" name="endereco" value={formData.endereco} onChange={handleChange} />
-                        <Input placeholder="Cidade do cliente" name="cidade" value={formData.cidade} onChange={handleChange} />
+                        <Input placeholder="Nome do Fornecedor " name="nome" value={formData.nome} onChange={handleChange} />
+                        <Input placeholder="Preço" name="preco" value={formData.preco} onChange={handleChange} />
+                        <Input placeholder="Quantidade" name="quantidade" value={formData.quantidade} onChange={handleChange} />
                         <Button type="submit" label="Salvar" />
                         <CustonLink href="./" label="Voltar"></CustonLink>
                     </form>
@@ -62,4 +58,5 @@ export default function Page() {
             </div>
         </body>
     );
+
 }
