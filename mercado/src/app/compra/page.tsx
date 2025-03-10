@@ -6,7 +6,7 @@ export default function Compra() {
         <body>
             <div className={styles.div}>
                 <header>
-                    <h1 className={styles.header}>Categoria</h1>
+                    <h1 className={styles.header}>Compra</h1>
                 </header>
                 <section>
                     <nav className={styles.section}>

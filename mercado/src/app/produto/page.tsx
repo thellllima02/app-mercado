@@ -10,7 +10,7 @@ export default function Produto() {
                 <section>
                     <nav className={styles.section}>
                         <CustonLink href="/produto/viewProduto" label="Visualizar Produtos"></CustonLink>
-                        <CustonLink href="/produto/novaProduto" label="Adicionar Produto"></CustonLink>
+                        <CustonLink href="/produto/novoProduto" label="Adicionar Produto"></CustonLink>
                         <CustonLink href="./" label="Voltar"></CustonLink>
                     </nav>
                 </section>
