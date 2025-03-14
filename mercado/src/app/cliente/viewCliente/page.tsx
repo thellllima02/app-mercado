@@ -7,16 +7,25 @@ export default async function ViewCliente() {
         const convertejson = await receberAPI.json();
         return (
             <>
-                <ul>{
-                    convertejson.map((cliente) => (
-                        <li key={cliente.id}>
-                            <label> {cliente.nome} </label>
-                            <label> {cliente.endereco} </label>
-                            <label> {cliente.cidade} </label>
-                        </li>
-                    ))}
-                    <CustonLink href="./" label="Voltar"></CustonLink>
-                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Cidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {convertejson.map((cliente) => (
+                            <tr key={cliente.id}>
+                                <td> {cliente.nome} </td>
+                                <td> {cliente.endereco} </td>
+                                <td> {cliente.cidade} </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <CustonLink href="./" label="Voltar"></CustonLink>
             </>
         )
     } catch (error) {
