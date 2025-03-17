@@ -5,7 +5,7 @@ import styles from "../styles.module.css"
 import Input from "../../components/input/page";
 import Button from "../../components/button/page";
 
-export default function Compra() {
+export default function CreateCompra() {
     const [formData, setFormData] = useState({ nome: "" });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,15 +26,17 @@ export default function Compra() {
                 body: JSON.stringify(formData),
             });
             const result = await response.json();
+            console.log('Resposta da API:', result)
             if (!response.ok) {
-                throw new Error('Erro ao salvar os dados!');
+                throw new Error(result.erro || 'Erro ao salvar os dados!');
             }
-            alert('Erro ao salvar os dados!')
+
+            alert('Dados salvos com sucesso!');
+            setFormData({ nome: "" });
 
         } catch (error) {
-            alert('Dados salvos com sucesso!')
-            setFormData({ nome: "" });
-            console.error(error);
+            console.error('POST error:', error);
+            setFormData(error.message);
         }
     };
 

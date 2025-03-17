@@ -8,6 +8,8 @@ export default async function ViewProduto() {
         const convertejson = await receberAPI.json();
         return (
             <>
+            <h1 className={styles.header}>Produto</h1>
+            <CustonLink href="./" label="Voltar "></CustonLink>
             <table className={styles.table}>
                 <thead>
                     <tr className={styles.tr}>

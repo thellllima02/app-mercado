@@ -5,16 +5,13 @@ import styles from "../styles.module.css"
 import Input from "../../components/input/page";
 import Button from "../../components/button/page";
 
-export default function Categoria() {
+export default function CreateCategoria() {
     const [formData, setFormData] = useState({ nome: "" });
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
-
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
 
         if (!formData.nome) {
             alert('Preencha todos os campos!')
@@ -29,14 +26,17 @@ export default function Categoria() {
                 body: JSON.stringify(formData),
             });
             const result = await response.json();
+            console.log('Resposta da API:', result)
             if (!response.ok) {
-                throw new Error('Erro ao salvar os dados!');
+                throw new Error(result.erro ||'Erro ao salvar os dados!');
             }
-            alert('Erro ao salvar dados ');
-        } catch (error) {
+            
             alert('Dados salvos com sucesso!');
             setFormData({ nome: "" });
-            console.error(error);
+            
+        } catch (error) {
+            console.error('POST error:', error);
+            setFormData(error.message);
         }
     };
     return (
@@ -58,5 +58,4 @@ export default function Categoria() {
             </div>
         </body>
     );
-
 }

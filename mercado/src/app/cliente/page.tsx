@@ -20,6 +20,5 @@ export default function Cliente() {
                 </footer>
             </div>
         </body>
-
     )
 }

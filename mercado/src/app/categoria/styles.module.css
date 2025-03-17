@@ -1,27 +1,29 @@
-.body{
+.body {
     background: rgb(70, 142, 236);
     font: normal 15pt Arial;
 }
 
-.header{
+.header {
     text-align: center;
 
 }
 
-.section{
+.section {
     background: white;
     border-radius: 12px;
     padding: 15px;
     width: 500px;
     margin: auto;
-    box-shadow: 5px 5px 10px black;/*--Sombra*/
+    box-shadow: 5px 5px 10px black;
+    /*--Sombra*/
 }
-.div{
+
+.div {
     text-align: center;
     padding: 9px;
 }
 
-.footer{
+.footer {
     text-align: center;
     font-style: italic;
 }
@@ -43,7 +45,8 @@
     background-color: #686564;
     color: white;
 }
-.tr{
+
+.tr {
     background-color: #eeec93;
 }
 

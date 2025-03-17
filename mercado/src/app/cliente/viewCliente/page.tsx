@@ -8,6 +8,8 @@ export default async function ViewCliente() {
         const convertejson = await receberAPI.json();
         return (
             <>
+                <h1 className={styles.header}>Cliente</h1>
+                <CustonLink href="./" label="Voltar"></CustonLink>
                 <table className={styles.table} >
                     <thead>
                         <tr className={styles.tr}>
@@ -26,7 +28,7 @@ export default async function ViewCliente() {
                         ))}
                     </tbody>
                 </table>
-                <CustonLink href="./" label="Voltar"></CustonLink>
+                <CustonLink href="./" label="Voltar "></CustonLink>
             </>
         )
     } catch (error) {

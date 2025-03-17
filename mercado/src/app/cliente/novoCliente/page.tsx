@@ -5,41 +5,39 @@ import styles from "../styles.module.css";
 import Input from '../../components/input/page';
 import Button from '../../components/button/page';
 
-export default function Page() {
+export default function CreteCliente() {
     const [formData, setFormData] = useState({ nome: "", endereco: "", cidade: "" });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
-
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-    
+
         if (!formData.nome || !formData.endereco || !formData.cidade) {
             alert('Preencha todos os campos!');
             return;
         }
-    
         try {
             const response = await fetch('http://localhost:3030/api/cliente', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-            const result = await response.json(); //Verificar isso depois.
+            const result = await response.json();
+            console.log('Resposta da API:', result)
             if (!response.ok) {
-                throw new Error('Erro ao salvar os dados!');
+                throw new Error(result.erro || 'Erro ao salvar os dados!');
             }
 
-            alert('Erro ao salvar dados ');
+            alert('Dados salvos com sucesso!');
+            setFormData({ nome: "", endereco: "", cidade: "" });
 
         } catch (error) {
-            alert('Dados salvos com sucesso!.');
-            setFormData({ nome: "", endereco: "", cidade: "" });
-            console.error(error);
+            console.error('POST error:', error);
+            setFormData(error.message);
         }
     };
-
     return (
         <div className={styles.body}>
             <div className={styles.div}>
