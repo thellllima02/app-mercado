@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import CustonLink from "../../components/link/page";
+import styles from "../styles.module.css"
 
 export default async function ViewProduto() {
     try {
@@ -7,14 +8,25 @@ export default async function ViewProduto() {
         const convertejson = await receberAPI.json();
         return (
             <>
-                <ul>{
-                    convertejson.map((produto) => (
-                        <li key={produto.id}>
-                            <label> {produto.nome} </label>
-                            <label> {produto.preco} </label>
-                            <label> {produto.quantidade} </label>
-                        </li>
+            <table className={styles.table}>
+                <thead>
+                    <tr className={styles.tr}>
+                        <th className={styles.th}>Nome</th>
+                        <th className={styles.th}>Preço</th>
+                        <th className={styles.th}>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {convertejson.map((produto) => (
+                        <tr key={produto.id} className={styles.tr}>
+                            <td className={styles.td}> {produto.nome} </td>
+                            <td className={styles.td}> {produto.preco} </td>
+                            <td className={styles.td}> {produto.quantidade} </td>
+                        </tr>
                     ))}
+                </tbody>
+            </table>
+                <ul>
                     <CustonLink href="./" label="Voltar"></CustonLink>
                 </ul>
             </>

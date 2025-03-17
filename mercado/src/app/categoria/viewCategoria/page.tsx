@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import CustonLink from "../../components/link/page";
+import styles from "../styles.module.css"
 
 export default async function ViewCategoria() {
     try {
@@ -7,14 +8,22 @@ export default async function ViewCategoria() {
         const converterJson = await receberAPI.json();
         return(
             <>
-            <ul>{
+            <table className={styles.table}>
+                <thead>
+                    <tr className={styles.tr}>
+                        <th className={styles.th}>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {
                 converterJson.map((categoria) =>(
-                    <li key={categoria.id}>
-                        <label> {categoria.nome} </label>
-                    </li>
+                    <tr key={categoria.id} className={styles.tr}>
+                        <td className={styles.td}> {categoria.nome} </td>
+                    </tr>
                 ))}
-                <CustonLink href="./" label="Voltar"></CustonLink>
-            </ul>
+                </tbody>
+            </table>
+            <CustonLink href="./" label="Voltar"></CustonLink>
             </>
         );
     } catch (error) {

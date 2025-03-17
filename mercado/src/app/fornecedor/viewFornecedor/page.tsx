@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import CustonLink from "../../components/link/page";
+import styles from "../styles.module.css"
 
 export default async function ViewFornecedor() {
     try {
@@ -7,18 +8,28 @@ export default async function ViewFornecedor() {
         const convertejson = await receberAPI.json();
         return (
             <>
-                <ul>{
-                    convertejson.map((fornecedor) => (
-                        <li key={fornecedor}>
-                            <label> {fornecedor.nome} </label>
-                            <label> {fornecedor.endereco} </label>
-                            <label> {fornecedor.cidade} </label>
-                            <label> {fornecedor.empresa} </label>
-
-                        </li>
-                    ))}
-                    <CustonLink href="./" label="Voltar"></CustonLink>
-                </ul>
+                <table className={styles.table}>
+                    <thead>
+                        <tr className={styles.tr}>
+                            <th className={styles.th}>Nome</th>
+                            <th className={styles.th}>Endereço</th>
+                            <th className={styles.th}>Cidade</th>
+                            <th className={styles.th}>Empresa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            convertejson.map((fornecedor) => (
+                                <tr key={fornecedor} className={styles.tr}>
+                                    <td className={styles.td}> {fornecedor.nome} </td>
+                                    <td className={styles.td}> {fornecedor.endereco} </td>
+                                    <td className={styles.td}> {fornecedor.cidade} </td>
+                                    <td className={styles.td}> {fornecedor.empresa} </td>
+                                </tr>
+                            ))}
+                    </tbody>
+                </table>
+                <CustonLink href="./" label="Voltar"></CustonLink>
             </>
         )
     } catch (error) {

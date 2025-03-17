@@ -25,3 +25,33 @@
     text-align: center;
     font-style: italic;
 }
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.th,
+.td {
+    border: 1px solid #030303;
+    padding: 10px;
+    text-align: center;
+}
+
+.th {
+    background-color: #686564;
+    color: white;
+}
+.tr{
+    background-color: #eeec93;
+}
+
+.tr:nth-child(even) {
+    background-color: #b6ca91;
+}
+
+.tr:hover {
+    background-color: #ddd;
+    transition: 0.3s;
+}

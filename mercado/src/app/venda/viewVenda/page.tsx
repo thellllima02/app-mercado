@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import CustonLink from "../../components/link/page";
+import styles from "../styles.module.css"
 
 export default async function ViewVenda() {
     try {
@@ -7,13 +8,22 @@ export default async function ViewVenda() {
         const converterJson = await receberAPI.json();
         return (
             <>
-                <ul>{
-                    converterJson.map((venda) => (
-                        <li key={venda.id}>
-                            <label> {venda.valor} </label>
+            <table className={styles.table}> 
+                <thead>
+                    <tr className={styles.tr}>
+                        <th className={styles.th}>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {converterJson.map((venda) => (
+                        <tr key={venda.id} className={styles.tr}>
+                            <td className={styles.td}> {venda.valor} </td>
 
-                        </li>
+                        </tr>
                     ))}
+                </tbody>
+            </table>
+                <ul>
                     <CustonLink href="./" label="Voltar"></CustonLink>
                 </ul>
             </>

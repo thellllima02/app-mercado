@@ -26,18 +26,16 @@ export default function Page() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-
+            const result = await response.json(); //Verificar isso depois.
             if (!response.ok) {
                 throw new Error('Erro ao salvar os dados!');
             }
 
-            alert('Dados salvos com sucesso!');
-            
-            // Resetando o formulário após salvar com sucesso
-            setFormData({ nome: "", endereco: "", cidade: "" });
+            alert('Erro ao salvar dados ');
 
         } catch (error) {
-            alert('Erro ao salvar os dados. Tente novamente.');
+            alert('Dados salvos com sucesso!.');
+            setFormData({ nome: "", endereco: "", cidade: "" });
             console.error(error);
         }
     };

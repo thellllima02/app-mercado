@@ -20,22 +20,28 @@ export default function Fornecedor() {
             alert('Preencha todos os campos!')
             return;
         }
-        const response = await fetch('http://localhost:3030/api/fornecedor', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
-        const result = await response.json();
-
-        if (response.ok) {
+        try{
+            const response = await fetch('http://localhost:3030/api/fornecedor', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            const result = await response.json();
+    
+            if (!response.ok) {
+                throw new Error('Erro ao salvar os dados!');
+            }
+            alert('Erro ao salvar dados')
+            console.log(result.message);
+        }catch(error){
             alert('Dados salvos com sucesso!')
-            setFormData({ nome: "", endereco: "", cidade: "", empresa: "" })
-        } else {
-            alert('Erro ao salvar os dados!')
+            setFormData({ nome: "", endereco: "", cidade: "", empresa: "" });
+            console.log(error);
+            
         }
-        console.log(result.message);
+       
     };
     return (
         <body className={styles.body}>

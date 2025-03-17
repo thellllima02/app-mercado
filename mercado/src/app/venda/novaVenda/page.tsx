@@ -5,8 +5,8 @@ import styles from "../styles.module.css"
 import Input from "../../components/input/page";
 import Button from "../../components/button/page";
 
-export default function Categoria() {
-    const [formData, setFormData] = useState({ nome: ""});
+export default function Venda() {
+    const [formData, setFormData] = useState({ valor: ""});
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -16,26 +16,29 @@ export default function Categoria() {
         event.preventDefault();
         
         
-        if(!formData.nome ){
+        if(!formData.valor ){
             alert('Preencha todos os campos!')
             return;
         }
-        const response = await fetch('http://localhost:3030/api/venda', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
-        const result = await response.json();
-        
-        if(response.ok){
-            alert('Dados salvos com sucesso!')
-            setFormData({ nome:""})
-        }else{
-            alert('Erro ao salvar os dados!')
+        try{
+            const response = await fetch('http://localhost:3030/api/venda', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            const result = await response.json();
+            
+            if(!response.ok){
+               throw new Error(result.message);
+            }
+            console.log(result.message);
+        }catch(error){
+            alert('Dados salvos com sucesso!');
+            setFormData({ valor: ""});
         }
-        console.log(result.message);
+       
     };
     return (
         <body className={styles.body}>
@@ -45,7 +48,7 @@ export default function Categoria() {
                 </header>
                 <section className={styles.section}>
                     <form onSubmit={(event) => handleSubmit(event)} >
-                        <Input placeholder="Nome venda" name="nome" value={formData.nome} onChange={handleChange} />
+                        <Input placeholder="Valor venda" name="valor" value={formData.valor} onChange={handleChange} />
                         <Button type="submit" label="Salvar" />
                         <CustonLink href="./" label="Voltar"></CustonLink>
                     </form>

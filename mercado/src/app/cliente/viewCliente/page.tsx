@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import CustonLink from "../../components/link/page";
+import styles from "../styles.module.css"
 
 export default async function ViewCliente() {
     try {
@@ -7,20 +8,20 @@ export default async function ViewCliente() {
         const convertejson = await receberAPI.json();
         return (
             <>
-                <table>
+                <table className={styles.table} >
                     <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Endereço</th>
-                            <th>Cidade</th>
+                        <tr className={styles.tr}>
+                            <th className={styles.th}>Nome</th>
+                            <th className={styles.th}>Endereço</th>
+                            <th className={styles.th}>Cidade</th>
                         </tr>
                     </thead>
                     <tbody>
                         {convertejson.map((cliente) => (
-                            <tr key={cliente.id}>
-                                <td> {cliente.nome} </td>
-                                <td> {cliente.endereco} </td>
-                                <td> {cliente.cidade} </td>
+                            <tr key={cliente.id} className={styles.tr}>
+                                <td className={styles.td}> {cliente.nome} </td>
+                                <td className={styles.td}> {cliente.endereco} </td>
+                                <td className={styles.td}> {cliente.cidade} </td>
                             </tr>
                         ))}
                     </tbody>

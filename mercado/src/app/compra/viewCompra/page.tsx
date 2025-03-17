@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import CustonLink from "../../components/link/page";
+import styles from "../styles.module.css"
 
 export default async function ViewCompra() {
     try {
@@ -7,14 +8,21 @@ export default async function ViewCompra() {
         const convertejson = await receberAPI.json();
         return (
             <>
-                <ul>{
-                    convertejson.map((compra) => (
-                        <li key={compra.id}>
-                            <label> {compra.nome} </label>
-                        </li>
+            <table className={styles.table}>
+                <thead>
+                    <tr className={styles.tr}>
+                        <th className={styles.th}>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {convertejson.map((compra) => (
+                        <tr key={compra.id} className={styles.tr}>
+                            <td className={styles.td}> {compra.nome} </td>
+                        </tr>
                     ))}
-                    <CustonLink href="./" label="Voltar "></CustonLink>
-                </ul>
+                </tbody>
+            </table>
+            <CustonLink href="./" label="Voltar "></CustonLink>
             </>
         )
     } catch (error) {
